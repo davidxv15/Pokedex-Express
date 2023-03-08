@@ -24,6 +24,6 @@ const userSchema = new mongoose.Schema(
 );
 
 //mongoose.model(<mongodb collection name>, our shema)
-const Pokemon = mongoose.model('Pokemon', pokemonShema);
+const Users = mongoose.model('Users', userSchema);
 
-module.exports = Pokemon;
+module.exports = Users;
