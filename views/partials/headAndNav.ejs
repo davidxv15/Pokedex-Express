@@ -5,7 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/main.css">
-    <title>Pokedex</title>
+    <% if(typeof otherStyleSheet !== 'undefined') { %>
+        <link rel="stylesheet" href=<%= otherStyleSheet %>>
+    <% } %>
+    <% if(typeof pageName === 'undefined') {%>
+        <title>Pokedex</title>
+    <% } else { %>
+        <title>Pokedex | <%= pageName %></title>
+    <% } %> 
 </head>
 <body>
     <nav>
@@ -13,3 +20,6 @@
         <a href="http://localhost:4000/pokemon">POKEMON</a>
         <a href="http://localhost:4000/types">TYPES</a>
     </nav>
+
+</body>
+</html>
