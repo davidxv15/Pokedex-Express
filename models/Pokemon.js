@@ -18,6 +18,7 @@ const pokemonSchema = new mongoose.Schema(
         //Pokemon "type" is not required; if entered, it will be a string
         type: {
             type: String,
+            default: "Grass"
         }    
     },
     {
