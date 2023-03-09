@@ -2,7 +2,7 @@ const express = require('express');
 
 //use router in controllers instead of app. Instead of just express(), it's express.Router(). Simplifies export of all routes of entire file.
 const router = express.Router();
-//This says that I want the value of the Pokemon from the object that was export. this is our ES6 destructuring syntax
+//This says that I want the value of the Pokemon from the object that was export. this is our ES6 destructuring syntax. If I point it to a directory, it automatically assumes an index.js file.
 const { Pokemon } = require('../models')
 
 //this route means '/pokemon' in browser
