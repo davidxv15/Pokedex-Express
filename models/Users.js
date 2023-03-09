@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema(
             type: String,
             required: [true, "Please enter password"],
         },
-        type: {
+        element_type: {
             type: String,
             required: [true, "Please input type"]
         }    

@@ -13,17 +13,21 @@ router.get('/', async (req, res, next) => {
         const context = {
             pokemon: myPokemon
         }
-         res.render('pokemon/index.ejs')
+         res.render('pokemon/index.ejs', context)
     } catch(err) {
         console.log(err);
         return next();
     }
 });
 
+router.get('/new', (req, res) => {
+    res.render('pokemon/new.ejs')
+});
+
 router.post('/', async (rec, res, next) => {
     try {
-        const myNewPokemon = await Pokemon.create(req.body);
-        console.log(myNewPokemon);
+       console.log(req.body);
+       res.redirect('/pokemon')
     } catch(err) {
         console.log(err);
     return next();
