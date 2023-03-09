@@ -26,7 +26,8 @@ const pokemonSchema = new mongoose.Schema(
     }
 );
 
-//mongoose.model(<mongodb collection name>, our shema) is the general default, it creates a collection inside of mongoDB that is named from the first argument, which is "Pokemon" here. It applies the schema above, to that collection.
+//mongoose.model(<mongodb collection name>, our shema) 
+//is the general default, it creates a collection inside of mongoDB that is named from the first argument, which is "Pokemon" here. It applies the schema above, to that collection.
 const Pokemon = mongoose.model('Pokemon', pokemonSchema);
 
 module.exports = Pokemon;

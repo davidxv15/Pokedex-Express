@@ -1,4 +1,15 @@
 body {
     background-color:cadetblue;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#footer-h3 {
+    display: flex;
+    text-align: center;
+    font-size: 8em;
 }
