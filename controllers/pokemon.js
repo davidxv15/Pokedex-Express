@@ -22,7 +22,7 @@ let mySeedData = [
 //this route means '/pokemon' in browser
 router.get('/', async (req, res, next) => {
     try {
-        //let myPokemon;
+        // let myPokemon;
         // if(req.query.s) {
         //     myPokemon = await Pokemon.find({name: req.query.s})
         // } else {
@@ -104,7 +104,7 @@ router.post('/', async (req, res, next) => {
     }
 })
 
-router.put('/pokemon/:id', async(req, res, next) => {
+router.put('/:id', async(req, res, next) => {
     try {
         console.log(req.params.id);
         console.log(req.body);
@@ -117,11 +117,11 @@ router.put('/pokemon/:id', async(req, res, next) => {
     }
 })
 
-router.delete('/pokemon/:id', async (req, res, next) => {
+router.delete('/', async (req, res, next) => {
     try {
         console.log(req.params);
         console.log("im hitting the delete route");
-        const itemGettingDeleted = await Musicians.findByIdAndDelete(req.params.id);
+        const itemGettingDeleted = await Pokemon.findByIdAndDelete(req.params.id);
         console.log(itemGettingDeleted);
         res.redirect('/pokemon');
     } catch(stuff) {

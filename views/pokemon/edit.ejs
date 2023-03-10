@@ -1,6 +1,6 @@
-<%- include('../partials/headAndNav', {pageName: "Update"}) %>
+<%- include('../partials/headAndNav', {pageName: "Updating " + monToEdit.name}) %>
 
-    <h1>EDIT</h1>
+    <h1>Edit <%= monToEdit.name %></h1>
     <form method="POST" action="/pokemon/<%= monToEdit._id %>?_method=PUT">
         <div>
             <label for="name">Update Pokemon's Name</label>
@@ -11,8 +11,8 @@
             <input type="text" name="image" id="image" value=<%= monToEdit.image %>>
         </div>
         <div>
-            <label for="power">Pokemon Type</label>
-            <input type="text" name="power" id="power" value=<%= monToEdit.power %>">
+            <label for="power">Update Pokemon Type</label>
+            <input type="text" name="power" id="power" value=<%= monToEdit.power %>>
         </div>
         <input type="submit" value="Edit <%= monToEdit.name %>">
     </form>
