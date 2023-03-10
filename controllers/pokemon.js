@@ -117,7 +117,7 @@ router.put('/:id', async(req, res, next) => {
     }
 })
 
-router.delete('/', async (req, res, next) => {
+router.delete('/:id', async (req, res, next) => {
     try {
         console.log(req.params);
         console.log("im hitting the delete route");
