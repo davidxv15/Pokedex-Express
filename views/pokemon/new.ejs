@@ -1,7 +1,7 @@
 <%- include('../partials/headAndNav', {pageName: "Create a new pokemon!"}) %>
 
     <h1>CREATE-A-POKEMON!</h1>
-    <form method="POST" action="/pokemon/abc">
+    <form method="POST" action="/pokemon">
         <div>
             <label for="name">Pokemon's Name</label>
             <input type="text" name="name" id="name">
@@ -11,8 +11,8 @@
             <input type="text" name="image" id="image">
         </div>
         <div>
-            <label for="element_type">Pokemon's Type</label>
-            <input type="text" name="element_type" id="element_type">
+            <label for="power">Pokemon's Type</label>
+            <input type="text" name="power" id="power">
         </div>
         <input type="submit" value="Submit new pokemon">
     </form>

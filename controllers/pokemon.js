@@ -53,7 +53,7 @@ router.get('/seed', async (reg, res, next) => {
 })
 
 
-router.get ('pokemon/new', (req, res) => {
+router.get('/new', (req, res) => {
     res.render('pokemon/new.ejs');
 });
 
@@ -75,13 +75,15 @@ router.get('/:id', async (req, res, next) => {
     }
 })
 
-
+router.get('/new', (req, res) => {
+    res.render('pokemon/new.ejs');
+});
 
 router.get('/:id/edit', async (req, res, next) => {
     try {
-        const thingToEdit = await Pokemon.findById(req.params.id);
-        console.log(thingToEdit);
-        res.render('pokemon/edit.ejs', thingToEdit)
+        const monToEdit = await Pokemon.findById(req.params.id);
+        console.log(monToEdit);
+        res.render('pokemon/edit.ejs', {monToEdit: monToEdit})
     } catch(catsAreCool) {
             console.log(catsAreCool);
             return next();
@@ -89,7 +91,7 @@ router.get('/:id/edit', async (req, res, next) => {
     }
 })
 
-router.post('/pokemon/abc', async (req, res, next) => {
+router.post('/', async (req, res, next) => {
     try {
         console.log(req.body);
         const newPokemon = await Pokemon.create(req.body);
