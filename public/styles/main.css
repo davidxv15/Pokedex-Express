@@ -1,15 +1,21 @@
+
 body {
     background-color:cadetblue;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align:center;
 }
 
 nav {
     display: flex;
     justify-content: space-evenly;
+    font-size: 2em;
 }
 
 #footer-h3 {
     display: flex;
     text-align: center;
-    font-size: 8em;
+    font-size: 2em;
+}
+footer {
+    font-size: 2em;
 }

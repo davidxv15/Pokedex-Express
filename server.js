@@ -3,7 +3,8 @@ const express = require('express');
 const app = express();
 
 // this brings the exports from my pokemon controller
-const pokemonController = require('./controllers/pokemon');
+const pokemonController = require('./controllers/pokemon.js');
+const methodOverride = require('method-override');
 
 // this is setting up that ejs will be used in this project and it will be set to a directory named views. The directory must be named views.
 // this goes through the views dir, also the ejs
@@ -14,13 +15,18 @@ app.use(express.static('public'));
 
 // forms do not come in the way i would want them to normally. I need to make sure I parse the info so that it works alongside EJS. Parses the into in express into something that will ne in the req.body
 // you can also npm i body-parser and then invoke it and do the same.
-app.use(express.urlencoded({ extended: false}))
+app.use(express.urlencoded({ extended: false}));
+
+//This allows us to override what a form wants to do. a form with this allows us with a ? and then an _method= to set it to either update or delete on the submission of the form.
+app.use(methodOverride('_method'));
+
+
 
 // Ensure a generic home route first but also want pokemon controller to be read before any * or catch all.
 
 // my routes
 app.get('/', (req, res) => {
-    res.render('home.ejs');
+    res.render('home');
 })
 
 

@@ -1,12 +1,15 @@
-<%- include('../partials/headAndNav', { pageName: pokemon.name}) %>
+<%- include('../partials/headAndNav', { pageName: pokemon.name}) %> 
         <h1>Name: <%= pokemon.name %></h1>
-        
-        <img src= <%= pokemon.image %> alt=<%= pokemon.name %>>
+        <img src=<%= pokemon.image %> alt=<%= pokemon.name %>>
         <p>Type: <%= pokemon.element_type %></p>
-        <!-- <a href="http://localhost:4000/pokemon/<%= pokemon._id %>/edit">Edit Pokemon</a>
+        <a href="http://localhost:4000/pokemon/<%= pokemon._id%>/edit">EDIT</a>
+          <form method="DELETE" action="/pokemon/<%= pokemon._id %>?_method=DELETE">
+            <input type="submit" value="Delete">
+          </form>
+
+          <!-- </form>" <a href="http://localhost:4000/pokemon/<%= pokemon._id %>/edit">Edit Pokemon</a>
         <form method="POST" action="/pokemon/<%= pokemon._id %>?_method=DELETE">
                 <input type="submit" value="Delete Me">
         </form> -->
         <hr />
-    <!-- <% } %> -->
 <%- include('../partials/footer') %>

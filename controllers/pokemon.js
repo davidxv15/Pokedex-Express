@@ -22,13 +22,13 @@ let mySeedData = [
 //this route means '/pokemon' in browser
 router.get('/', async (req, res, next) => {
     try {
-        let myPokemon;
-        if(req.query.s) {
-            myPokemon = await Pokemon.find({name: req.query.s})
-        } else {
-            myPokemon = await Pokemon.find({})
-        }
-        //const myPokemon = await Pokemon.find({})
+        //let myPokemon;
+        // if(req.query.s) {
+        //     myPokemon = await Pokemon.find({name: req.query.s})
+        // } else {
+        //     myPokemon = await Pokemon.find({})
+        // }
+        const myPokemon = await Pokemon.find({})
         console.log(myPokemon);
         res.render('pokemon/index.ejs', {pokemon:
         myPokemon});
@@ -52,11 +52,19 @@ router.get('/seed', async (reg, res, next) => {
     }
 })
 
+
+router.get ('pokemon/new', (req, res) => {
+    res.render('pokemon/new.ejs');
+});
+
 router.get('/:id', async (req, res, next) => {
     try {
         console.log(req.params)
+        // you can find the name and find will return all of the names that match nut always in an array, even if it's only finding one of them. or you can do findOne to find the first one and only that one and it'll be an object.
+        //const pokemon = await Pokemon.findById({name: req.params.name});
         const pokemon = await Pokemon.findById(req.params.id);
-        //console.log(pokemon);
+        //const pokemon = await Pokemon.findOne({name: req.params.name})
+        console.log(pokemon);
         const context = {
             pokemon: pokemon
         }
@@ -67,12 +75,23 @@ router.get('/:id', async (req, res, next) => {
     }
 })
 
-router.get ('new', (req, res) => {
-    res.render('pokemon/new.ejs');
-});
 
-router.post('/abc', async (req, res, next) => {
+
+router.get('/:id/edit', async (req, res, next) => {
     try {
+        const thingToEdit = await Pokemon.findById(req.params.id);
+        console.log(thingToEdit);
+        res.render('pokemon/edit.ejs', thingToEdit)
+    } catch(catsAreCool) {
+            console.log(catsAreCool);
+            return next();
+        
+    }
+})
+
+router.post('/pokemon/abc', async (req, res, next) => {
+    try {
+        console.log(req.body);
         const newPokemon = await Pokemon.create(req.body);
         mySeedData.push(newPokemon);
         console.log(newPokemon);
@@ -83,10 +102,26 @@ router.post('/abc', async (req, res, next) => {
     }
 })
 
-router.delete('/:id', async (req, res, next) => {
+router.put('/pokemon/:id', async(req, res, next) => {
+    try {
+        console.log(req.params.id);
+        console.log(req.body);
+        const updateItem = await Pokemon.findByIdAndUpdate(req.params.id, req.body);
+        console.log(updateItem);
+        res.redirect('/pokemon');
+    } catch(dogsAreBetter) {
+        console.log(dogsAreBetter);
+        return next();
+    }
+})
+
+router.delete('/pokemon/:id', async (req, res, next) => {
     try {
         console.log(req.params);
+        console.log("im hitting the delete route");
         const itemGettingDeleted = await Musicians.findByIdAndDelete(req.params.id);
+        console.log(itemGettingDeleted);
+        res.redirect('/pokemon');
     } catch(stuff) {
         console.log(stuff);
         return next();

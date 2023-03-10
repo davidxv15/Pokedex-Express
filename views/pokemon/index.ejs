@@ -1,10 +1,10 @@
 <%- include('../partials/headAndNav', {pageName: "All Pokemon"}) %>
-    <h1>Here's a list of my Pokemon, Trainer!</h1>
+    <h1>Here's a list of Pokemon, Trainer!</h1>
     <% for(let i = 0; i < pokemon.length; i++) { %>
         <a href="/pokemon/<%= pokemon[i]._id %>">
             <h3>Name: <%= pokemon[i].name %></h3>
-        </a>
         <img src=<%= pokemon[i].image %> alt=<%= pokemon[i].name %>>
+        </a>
         <p>Type: <%= pokemon[i].element_type %></p>
         <hr />
     <% } %>

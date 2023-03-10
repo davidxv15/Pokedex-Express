@@ -1,20 +1,20 @@
-<%- include('../partials/headAndNav', {pageName: "Create a new pokemon"}) %>
+<%- include('../partials/headAndNav', {pageName: "Create a new pokemon!"}) %>
 
     <h1>CREATE-A-POKEMON!</h1>
-    <form method="POST" action="/pokemon">
+    <form method="POST" action="/pokemon/abc">
         <div>
             <label for="name">Pokemon's Name</label>
             <input type="text" name="name" id="name">
         </div>
         <div>
-            <label for="name">Pokemon's Image URL</label>
+            <label for="image">Pokemon's Image URL</label>
             <input type="text" name="image" id="image">
         </div>
         <div>
-            <label for="name">Pokemon's Type</label>
+            <label for="element_type">Pokemon's Type</label>
             <input type="text" name="element_type" id="element_type">
         </div>
-        <input type="submit" value="SUBMIT YOUR POKEMON!">
+        <input type="submit" value="Submit new pokemon">
     </form>
 
 <%- include('../partials/footer') %>
