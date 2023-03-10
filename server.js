@@ -23,6 +23,7 @@ app.get('/', (req, res) => {
     res.render('home.ejs');
 })
 
+
 //app.use is saying I want to use all of the imports from my pokemon controller. And the first argument is saying the base URL is now http://localhost:4000/pokemon when that file is read.
 
 app.use('/pokemon', pokemonController);

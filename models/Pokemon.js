@@ -13,10 +13,10 @@ const pokemonSchema = new mongoose.Schema(
         image: {
             type: String,
             required: [true, "Please provide URL for Pokemon image"],
-            unique: [true, "Image used, please provide a new image"]
+            // unique: [true, "Image used, please provide a new image"]
         },
         //Pokemon "type" is not required; if entered, it will be a string
-        type: {
+        elemeny_type: {
             type: String,
             default: "Grass"
         }    
